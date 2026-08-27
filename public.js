@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const params = new URLSearchParams(window.location.search);
 const username = params.get('username');
 
-const API_BASE_URL = 'https://knot-backend-y08m.onrender.com'; 
+const API_BASE_URL = 'https://knot-backend-y08m.onrender.com/api'; 
 
 async function loadPublicProfile() {
     if (!username) {

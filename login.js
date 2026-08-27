@@ -81,7 +81,7 @@ authForm.addEventListener('submit', async (e) => {
         }
 
         const token = await auth.currentUser.getIdToken();
-        await fetch('https://knot-backend-y08m.onrender.com', {
+        await fetch('https://knot-backend-y08m.onrender.com/api/auth/sync', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`

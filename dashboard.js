@@ -18,7 +18,7 @@ const linkIconInput = document.getElementById('linkIcon');
 const linksList = document.getElementById('linksList');
 const logoutBtn = document.getElementById('logoutBtn');
 
-const API_BASE_URL = 'https://knot-backend-y08m.onrender.com';
+const API_BASE_URL = 'https://knot-backend-y08m.onrender.com/api';
 
 const toggleBtn = document.getElementById('toggleLinkFormBtn');
 const formContainer = document.getElementById('linkFormContainer');
