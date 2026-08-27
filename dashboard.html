@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knot — Dashboard</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo" style="display: flex; align-items: center;">
+                <img src="assets/logo.png" alt="Knot Logo" style="height: 40px; filter: invert(1) brightness(2); mix-blend-mode: screen;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">← Home</a></li>
+                <li><a href="public.html?username=demo">Public Page</a></li>
+                <li><a href="#" class="btn btn-outline btn-sm" id="logoutBtn">Logout</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <main class="dashboard-container container section">
+        <header class="dashboard-header text-center">
+            <h1>Your Dashboard</h1>
+            <p class="subtitle">Manage your Knot profile and links</p>
+        </header>
+
+        <div class="dashboard-content">
+            
+            <aside class="profile-card card">
+                <div class="profile-card-header text-center">
+                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=KN" alt="Profile Avatar" class="profile-avatar" id="profileImage">
+                    <h2 id="profileName">Knot User</h2>
+                    <p id="profileBio">user@example.com</p>
+                </div>
+                <div class="profile-card-body">
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <span class="stat-value" id="linksCountStat">3</span>
+                            <span class="stat-label">Links Count</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">127</span>
+                            <span class="stat-label">Total Clicks</span>
+                        </div>
+                    </div>
+                    <a href="public.html?username=demo" class="btn btn-outline btn-block profile-link">View Public Page &rarr;</a>
+                </div>
+            </aside>
+
+            <section class="links-panel card">
+                <header class="card-header flex-between align-center">
+                    <h2>Your Links</h2>
+                    <button class="btn btn-primary btn-sm" id="toggleLinkFormBtn">+ Add Link</button>
+                </header>
+                <div class="card-body">
+                    
+                    <div class="link-form-container" id="linkFormContainer">
+                        <form class="link-form" id="linkForm">
+                            <div class="form-group">
+                                <label for="linkTitle">Link Title</label>
+                                <input type="text" id="linkTitle" placeholder="e.g., YouTube" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="linkUrl">Link URL</label>
+                                <input type="url" id="linkUrl" placeholder="https://..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="linkIcon">Icon (Emoji)</label>
+                                <input type="text" id="linkIcon" value="🔗" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Add Link</button>
+                        </form>
+                    </div>
+
+                    <div class="links-list" id="linksList">
+                        
+                        <div class="link-item">
+                            <div class="link-content">
+                                <span class="link-icon">🎬</span>
+                                <div class="link-details">
+                                    <span class="link-title">YouTube Channel</span>
+                                    <span class="link-url">youtube.com/@creator</span>
+                                </div>
+                            </div>
+                            <div class="link-actions">
+                                <button class="btn btn-outline btn-sm">Edit</button>
+                                <button class="btn btn-secondary btn-sm delete-link-btn">Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="link-item">
+                            <div class="link-content">
+                                <span class="link-icon">📸</span>
+                                <div class="link-details">
+                                    <span class="link-title">Instagram</span>
+                                    <span class="link-url">instagram.com/creator</span>
+                                </div>
+                            </div>
+                            <div class="link-actions">
+                                <button class="btn btn-outline btn-sm">Edit</button>
+                                <button class="btn btn-secondary btn-sm delete-link-btn">Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="link-item">
+                            <div class="link-content">
+                                <span class="link-icon">💼</span>
+                                <div class="link-details">
+                                    <span class="link-title">Portfolio</span>
+                                    <span class="link-url">mycreatorsite.com</span>
+                                </div>
+                            </div>
+                            <div class="link-actions">
+                                <button class="btn btn-outline btn-sm">Edit</button>
+                                <button class="btn btn-secondary btn-sm delete-link-btn">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
