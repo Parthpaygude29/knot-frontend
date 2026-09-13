@@ -74,7 +74,7 @@ async function loadLinks() {
         const data = await response.json();
 
         if (data.user && data.user.username) {
-            const publicUrl = `/@${data.user.username}`;
+            const publicUrl = `public.html?username=${data.user.username}`;
             document.querySelectorAll('#viewPublicPageNav').forEach(el => {
                 el.href = publicUrl;
             });

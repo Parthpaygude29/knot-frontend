@@ -2,18 +2,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 
 const params = new URLSearchParams(window.location.search);
-let username = params.get('username');
-if (!username) {
-    const pathParts = window.location.pathname.split('/').filter(Boolean);
-    if (pathParts.length > 0) {
-        username = pathParts[pathParts.length - 1];
-        if (username.startsWith('@')) {
-            username = username.substring(1);
-        }
-        // If it still equals public.html (e.g. user visited /public.html directly without query), keep null
-        if (username.includes('.html')) username = null;
-    }
-}
+const username = params.get('username');
 
 const API_BASE_URL = 'https://knot-backend-y08m.onrender.com/api'; 
 
