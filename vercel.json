@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/public.html?username=$1"
+      "source": "/@:username",
+      "destination": "/public.html?username=:username"
     }
   ]
 }

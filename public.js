@@ -7,6 +7,9 @@ if (!username) {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
     if (pathParts.length > 0) {
         username = pathParts[pathParts.length - 1];
+        if (username.startsWith('@')) {
+            username = username.substring(1);
+        }
         // If it still equals public.html (e.g. user visited /public.html directly without query), keep null
         if (username.includes('.html')) username = null;
     }
