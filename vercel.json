@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/:username",
+      "destination": "/public.html?username=:username"
+    }
+  ]
+}
+
