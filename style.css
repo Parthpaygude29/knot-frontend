@@ -80,7 +80,6 @@ body {
 
 .navbar-logo img {
     height: 32px;
-    filter: grayscale(1) invert(1) brightness(0.1);
 }
 
 /* BUTTONS */
