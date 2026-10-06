@@ -38,6 +38,18 @@ auth.onAuthStateChanged(async (user) => {
     if (user) {
         
         console.log('User signed in:', user.uid);
+        
+        // GUARANTEE the user is synced in MongoDB before doing anything else
+        try {
+            const token = await user.getIdToken();
+            await fetch(API_BASE_URL + '/auth/sync', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+        } catch (e) {
+            console.error("Failed to sync user on dashboard load", e);
+        }
+
         await loadUserProfile();
         await loadLinks();
     } else {

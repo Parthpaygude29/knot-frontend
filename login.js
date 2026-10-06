@@ -109,10 +109,6 @@ authForm.addEventListener('submit', async (e) => {
     }
 });
 
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        
-        window.location.href = 'dashboard.html';
-    }
-});
+// We remove the aggressive onAuthStateChanged redirect from here,
+// because it interrupts the database sync process when a new user signs up.
 
